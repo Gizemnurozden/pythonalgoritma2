@@ -1,0 +1,18 @@
+def fix_text(mystr):
+    words = mystr.split()
+    result = []
+
+    for word in words:
+        if word.startswith("(") and word.endswith(")"):
+            corrected_word = word[1:-1][::-1]  # Reverse the word inside parentheses
+            result.append(corrected_word)
+        else:
+            result.append(word)
+
+    return " ".join(result)
+
+if __name__ == "__main__":
+    fixed_text = fix_text(INPUT)
+    print("Correct!" if fixed_text == CORRECT_ANSWER else "Sorry, it does not match with the correct answer.")
+    print("Fixed Text:")
+    print(fixed_text)
